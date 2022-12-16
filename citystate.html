@@ -1,0 +1,46 @@
+<style>
+	select
+	{
+		font-size: 30px;
+		font-family: calibri;
+		background-color: violet;
+		border-radius: 5px;
+	}
+	select:hover
+	{
+		font-size: 40px;
+	}
+</style>
+<select onchange="show()" id="states">
+	<option>select</option>
+	<option>MP</option>
+	<option>UP</option>
+	<option>RJ</option>
+	<option>MH</option>
+</select>
+<select id="cities">
+</select>
+<script>
+	let data=[
+	{state:"MP",cities:["Indore","Ujjian","Bhopal","Gwalior"]},
+	{state:"RJ",cities:["Jaipur","Kota","Jaipur","Udaipur"]},
+	{state:"UP",cities:["Varanasi","Jhansi","Lucknow","Gorakhpur"]},
+	{state:"MH",cities:["Mumbai","Pune","Nagpur","Aurangabad"]}
+	];
+	let show=()=>
+	{
+		document.getElementById('cities').innerHTML="";
+		let state=document.getElementById("states").value;
+		let t=data.filter(function(v){
+			return v.state==state;
+		})
+		t=t[0];
+		for(let i of t.cities)
+		{
+			let t=document.createElement("option");
+			let d=document.querySelector("#cities");
+			t.textContent=i;
+			d.appendChild(t);
+		}
+	}
+</script>

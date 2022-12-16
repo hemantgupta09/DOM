@@ -1,0 +1,1 @@
+Indian City State Selection By JavaScript I have used some document object model (DOM) for get access of option tag
